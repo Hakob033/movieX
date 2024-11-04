@@ -1,8 +1,15 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx,html}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customWhite: "#FFFFFF",
+        customPurple: "#6306D9",
+        linearFrom: "#1B003E",
+        linearTo: "#13002C",
+        myPurple: "#13002B",
+      },
+    },
   },
   plugins: [],
 };
