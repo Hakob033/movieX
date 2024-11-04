@@ -1,4 +1,4 @@
-import { PopularURL } from "../lib";
+import { RatedURL } from "../lib";
 import useFetch from "../hook/useFetch";
 import Card from "./card";
 
@@ -8,13 +8,13 @@ interface Film {
   poster_path: string;
 }
 
-export default function PopularFilms() {
-  const { data, loading, error } = useFetch<Film>(PopularURL);
+export default function MostRated() {
+  const { data, loading, error } = useFetch<Film>(RatedURL);
 
   return (
     <div className=" max-w-screen flex justify-center items-center">
       <div className="popular-films w-10/12 py-5">
-        <h1 className=" text-center text-2xl py-5">Most popular</h1>
+        <h1 className=" text-center text-2xl py-5">Most rated</h1>
         {loading ? (
           <p>Loading popular films...</p>
         ) : error ? (

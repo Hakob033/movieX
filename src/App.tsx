@@ -1,8 +1,15 @@
-import PopularFilms from "./components/popularFilms";
-import MainLayout from "./layouts/mainLayout";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home";
 
 function App() {
-  return <MainLayout children={<PopularFilms />}></MainLayout>;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />}></Route>
+      <Route></Route>
+      <Route></Route>
+      <Route></Route>
+    </Routes>
+  );
 }
 
 export default App;
