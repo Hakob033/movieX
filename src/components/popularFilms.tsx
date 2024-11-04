@@ -20,7 +20,7 @@ export default function PopularFilms() {
         ) : error ? (
           <p>Error fetching films: {error}</p>
         ) : (
-          <ul className="grid grid-cols-6 gap-4">
+          <ul className="grid gap-4 grid-cols-2 lg:grid-cols-6 md:grid-cols-3">
             {data.slice(0, 6).map((film) => (
               <Card
                 key={film.id}

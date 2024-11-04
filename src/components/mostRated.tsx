@@ -20,7 +20,7 @@ export default function MostRated() {
         ) : error ? (
           <p>Error fetching films: {error}</p>
         ) : (
-          <ul className="grid grid-cols-6 gap-4">
+          <ul className="grid grid-cols-2 gap-4  md:grid-cols-3 lg:grid-cols-6">
             {data.slice(0, 6).map((film) => (
               <Card
                 key={film.id}
