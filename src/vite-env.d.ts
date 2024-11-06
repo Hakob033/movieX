@@ -1,11 +1,14 @@
 /// <reference types="vite/client" />
+// global.d.ts
 declare namespace JSX {
   interface IntrinsicElements {
-    "my-header": React.DetailedHTMLProps<
+    "film-card": React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     > & {
       title?: string;
+      imageUrl?: string;
+      date?: string;
     };
   }
 }

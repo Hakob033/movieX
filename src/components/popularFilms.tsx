@@ -1,12 +1,13 @@
 import { PopularURL } from "../lib";
 import useFetch from "../hook/useFetch";
-import Card from "./card";
+import { Link } from "react-router-dom";
 
-interface Film {
+type Film = {
   id: number;
   title: string;
-  poster_path: string;
-}
+  backdrop_path: string;
+  release_date: string;
+};
 
 export default function PopularFilms() {
   const { data, loading, error } = useFetch<Film>(PopularURL);
@@ -22,11 +23,14 @@ export default function PopularFilms() {
         ) : (
           <ul className="grid gap-4 grid-cols-2 lg:grid-cols-6 md:grid-cols-3">
             {data.slice(0, 6).map((film) => (
-              <Card
-                key={film.id}
-                title={film.title}
-                imageUrl={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
-              />
+              <Link to={`/films/${film.id}`} key={film.id}>
+                <film-card
+                  key={film.id}
+                  title={film.title}
+                  image-url={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
+                  date={film.release_date}
+                ></film-card>
+              </Link>
             ))}
           </ul>
         )}
