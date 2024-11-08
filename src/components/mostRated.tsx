@@ -2,16 +2,16 @@ import { RatedURL } from "../lib";
 import useFetch from "../hook/useFetch";
 import { Link } from "react-router-dom";
 
-type Film = {
+type RatedFilm = {
   id: number;
   title: string;
   backdrop_path: string;
   release_date: string;
+  vote_average: string;
 };
 
 export default function MostRated() {
-  const { data, loading, error } = useFetch<Film>(RatedURL);
-  console.log(data);
+  const { data, loading, error } = useFetch<RatedFilm>(RatedURL);
 
   return (
     <div className="max-w-screen flex justify-center items-center">
@@ -30,6 +30,7 @@ export default function MostRated() {
                   title={film.title}
                   image-url={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
                   date={film.release_date}
+                  vote_average={film.vote_average}
                 ></film-card>
               </Link>
             ))}

@@ -2,15 +2,16 @@ import { PopularURL } from "../lib";
 import useFetch from "../hook/useFetch";
 import { Link } from "react-router-dom";
 
-type Film = {
+type PopularFilm = {
   id: number;
   title: string;
   backdrop_path: string;
   release_date: string;
+  vote_average: string;
 };
 
 export default function PopularFilms() {
-  const { data, loading, error } = useFetch<Film>(PopularURL);
+  const { data, loading, error } = useFetch<PopularFilm>(PopularURL);
 
   return (
     <div className=" max-w-screen flex justify-center items-center">
@@ -29,6 +30,7 @@ export default function PopularFilms() {
                   title={film.title}
                   image-url={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`}
                   date={film.release_date}
+                  vote_average={film.vote_average}
                 ></film-card>
               </Link>
             ))}

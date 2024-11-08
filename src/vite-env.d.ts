@@ -9,6 +9,7 @@ declare namespace JSX {
       title?: string;
       imageUrl?: string;
       date?: string;
+      vote_average?: string;
     };
   }
 }
